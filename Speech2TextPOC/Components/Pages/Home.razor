@@ -1,0 +1,64 @@
+﻿@page "/"
+@inject SpeechToTextViewModel ViewModel
+
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+
+    <!-- Title -->
+    <h4 style="font-size: 20px; text-align: center; font-weight: bold;">Speech-to-Text </h4>
+
+    <!-- Instructions .. The device is recognizing that we stopped speaking -->
+    <p style="text-align: center; font-size: 16px;">
+        Tap <strong>Start Listening</strong> and speak into your device's microphone.
+    </p>
+
+    <!-- Start Listening Button -->
+    <button @onclick="StartListening"
+    disabled="@_isListening"
+    style="padding: 12px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; width: 100%;">
+        Start Listening
+    </button>
+
+    <!-- Stop Listening Button -->
+   @*  <button @onclick="StopListening"
+     disabled="@_isNotListening"
+    style="padding: 12px; font-size: 16px; background-color: #f44336; color: white; border: none; border-radius: 8px; cursor: pointer; width: 100%;">
+        Stop Listening
+    </button> *@
+
+
+
+    <!-- Recognized Text -->
+    <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; font-size: 16px; min-height: 100px;">
+        <h5 style="margin-bottom: 8px;">Recognized Text:</h5>
+        <p>@(string.IsNullOrEmpty(ViewModel.RecognitionText) ? "No text recognized yet." : ViewModel.RecognitionText)</p>
+      
+    </div>
+</div>
+
+@code {
+    private bool _isListening = false;
+    private bool _isNotListening = true;
+    
+    private async Task StartListening()
+    {
+        _isListening = true;
+        _isNotListening = false;
+        StateHasChanged();
+        await ViewModel.ListenCommand.ExecuteAsync(null);
+        _isListening = false;
+        _isNotListening = true;
+        StateHasChanged();
+    }
+
+    /*
+    private async Task StopListening()
+    {
+        _isListening = false;
+        _isNotListening = true;
+         StateHasChanged();
+        await ViewModel.StopListenCommand.ExecuteAsync(null);        
+        StateHasChanged();
+    }
+
+    */
+}
