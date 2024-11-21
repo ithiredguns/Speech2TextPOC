@@ -26,9 +26,12 @@
         <string>UIInterfaceOrientationLandscapeLeft</string>
         <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+
+    <!-- This permission is required to enable microphone access for audio features.   -->
+    <!-- Enable the microphone entitlement by adding it in the Apple Developer account and updating the app's provisioning profile. -->
     <key>NSMicrophoneUsageDescription</key>
-    <string>This app needs access to your microphone for speech recognition.</string>
+    <string>This app needs access to your microphone for audio features.</string>
     <key>XSAppIconAssets</key>
-    <string>Assets.xcassets/appicon.appiconset</string>
+    <string>Assets.xcassets/appicon.appiconset</string> 
 </dict>
 </plist>

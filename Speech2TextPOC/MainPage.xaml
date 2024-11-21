@@ -4,7 +4,9 @@
              xmlns:local="clr-namespace:Speech2TextPOC"
              x:Class="Speech2TextPOC.MainPage">
 
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
+    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html"  
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="FillAndExpand">
         <BlazorWebView.RootComponents>
             <RootComponent Selector="#app" ComponentType="{x:Type local:Components.Routes}" />
         </BlazorWebView.RootComponents>

@@ -1,0 +1,33 @@
+﻿@page "/askmercola"
+@using Microsoft.Maui.Controls
+<style>
+    html, body, #app {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .iframe-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        background-color:#C8E5F5;
+    }
+
+    iframe {
+        flex: 1;
+        border: none;
+    }
+</style>
+
+<div class="iframe-container" >
+    <iframe src="https://askmercola.com/" allowfullscreen            
+            allow="microphone">
+    </iframe>
+</div>
+
+@*  <ContentView>
+    <webview source="https://askmercola.com/"
+             WidthRequest="100%"
+             HeightRequest="100%" />
+</ContentView> *@
